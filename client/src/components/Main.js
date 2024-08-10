@@ -23,6 +23,11 @@ const Main = () => {
         <input type='text' name='movieOrTvshow' placeholder='Search TV Show or Movie...' />
         <button>Search</button>
       </form>
+      <br></br>
+      <br></br>
+      {/* Replace br with padding later */}
+      <h3>TV Show</h3>
+      <h3>Movies</h3>
     </div>
   )
 }
