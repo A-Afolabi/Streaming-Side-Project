@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <h1>
-        WhereToStreamIt
+        Where To Stream It
       </h1>
     </header>
   )

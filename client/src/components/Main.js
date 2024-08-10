@@ -18,7 +18,7 @@ const Main = () => {
   return (
     <div className='container'>
       <h1>TV Show --> Movie --> Find where to stream it</h1>
-      <h4>USA🇺🇸, Cananda🇨🇦, Australia🇦🇺, England🏴󠁧󠁢󠁥󠁮󠁧󠁿, Spain🇪🇸 & Brazil🇧🇷 all Supported</h4>
+      <h4>USA🇺🇸, Canada🇨🇦, Australia🇦🇺, England🏴󠁧󠁢󠁥󠁮󠁧󠁿, Spain🇪🇸 & Brazil🇧🇷 all Supported</h4>
       <form onSubmit={handleSearch}>
         <input type='text' name='movieOrTvshow' placeholder='Search TV Show or Movie...' />
         <button>Search</button>
