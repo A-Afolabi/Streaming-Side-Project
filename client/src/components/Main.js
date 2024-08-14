@@ -7,6 +7,7 @@ const Main = () => {
     const getTvshows = async () => {
       const res = await axios.get('https://api.watchmode.com/v1/list-titles/?apiKey=LaxojFOaUr7urwdEmUb8lBwJET1Wq3fMTRpvSSGQ&source_ids=203,57')
       console.log(res)
+      // 'https://api.watchmode.com/v1/autocomplete-search/?apiKey=YOUR_API_KEY&search_value=Breaking%20bad&search_type=1'
     }
     getTvshows()
   }, [])
