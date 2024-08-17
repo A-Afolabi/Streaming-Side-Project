@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios'
 
 const Main = () => {
+
+  const [releases, setReleases] = useState([])
 
   // useEffect(() => {
   //   const searchField = async () => {
@@ -18,8 +20,13 @@ const Main = () => {
 
   useEffect(() => {
     const getReleases = async () => {
-      const { data } = await axios.get('https://api.watchmode.com/v1/releases/?apiKey=LaxojFOaUr7urwdEmUb8lBwJET1Wq3fMTRpvSSGQ')
-      console.log(data.releases)
+      try {
+        const { data } = await axios.get('https://api.watchmode.com/v1/releases/?apiKey=LaxojFOaUr7urwdEmUb8lBwJET1Wq3fMTRpvSSGQ')
+        // console.log(data.releases)
+        setReleases(data.releases)
+      } catch (error) {
+        console.log(error)
+      }
     }
     getReleases()
   }, [])
@@ -35,10 +42,8 @@ const Main = () => {
       <br></br>
       <br></br>
       {/* Replace br with padding later */}
-      <h3>TV Show</h3>
+      <h3>Upcoming Releases</h3>
 
-      <br></br>
-      <h3>Movies</h3>
     </div>
   )
 }
