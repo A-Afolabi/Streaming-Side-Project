@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const Main = () => {
 
   const [releases, setReleases] = useState([])
+
+  const [isError, setIsError] = useState(false)
 
   // useEffect(() => {
   //   const searchField = async () => {
@@ -25,7 +27,7 @@ const Main = () => {
         // console.log(data.releases)
         setReleases(data.releases)
       } catch (error) {
-        console.log(error)
+        setIsError(true)
       }
     }
     getReleases()
@@ -33,7 +35,7 @@ const Main = () => {
 
   return (
     <div className='container'>
-      <h1 className="title is-1">TV Show --> Movie --> Find where to stream it</h1>
+      <h1 className="title is-1">TV Show -- Movie -- Find where to stream it</h1>
       <h4>USA🇺🇸, Canada🇨🇦, Australia🇦🇺, England🏴󠁧󠁢󠁥󠁮󠁧󠁿, Spain🇪🇸 & Brazil🇧🇷 all Supported</h4>
       <form onSubmit={handleSearch}>
         <input type='text' name='movieOrTvshow' placeholder='Search TV Show or Movie...' />
@@ -43,7 +45,11 @@ const Main = () => {
       <br></br>
       {/* Replace br with padding later */}
       <h3>Upcoming Releases</h3>
-
+      <ul>
+        {releases.map(
+          release => <li key={release.id}><img src={release.poster_url} alt={release.title} /> - {release.title} - {release.source_release_date}</li>
+        )}
+      </ul>
     </div>
   )
 }
