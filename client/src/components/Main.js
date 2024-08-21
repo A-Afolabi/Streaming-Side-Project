@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+// import tvPlaceholder from './assets/tvPlaceholder.avif'
+import comingSoonPlaceholder from './assets/comingSoonPlaceholder.png'
 
 const Main = () => {
 
@@ -50,11 +52,18 @@ const Main = () => {
           :
           <>
             <h3>Upcoming Releases</h3>
-            <ul>
-              {releases.map(
-                release => <li key={release.id}><img src={release.poster_url} alt={release.title} /> - {release.title} - {release.source_release_date}</li>
-              )}
-            </ul>
+            {releases.map(release => {
+              return (
+                <div key={release.id} className>
+                  <div className="card-image">
+                    <img src={release.poster_url} alt={comingSoonPlaceholder} />
+                  </div>
+                  <div className="card-content">
+                    {release.title} - {release.source_release_date}
+                  </div>
+                </div>
+              )
+            })}
           </>
       }
     </div>
