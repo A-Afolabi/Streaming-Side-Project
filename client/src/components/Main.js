@@ -44,12 +44,19 @@ const Main = () => {
       <br></br>
       <br></br>
       {/* Replace br with padding later */}
-      <h3>Upcoming Releases</h3>
-      <ul>
-        {releases.map(
-          release => <li key={release.id}><img src={release.poster_url} alt={release.title} /> - {release.title} - {release.source_release_date}</li>
-        )}
-      </ul>
+      {
+        isError ?
+          <p>There was an error! Please try again</p>
+          :
+          <>
+            <h3>Upcoming Releases</h3>
+            <ul>
+              {releases.map(
+                release => <li key={release.id}><img src={release.poster_url} alt={release.title} /> - {release.title} - {release.source_release_date}</li>
+              )}
+            </ul>
+          </>
+      }
     </div>
   )
 }
