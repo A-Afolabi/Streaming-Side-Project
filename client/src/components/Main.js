@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 // import tvPlaceholder from './assets/tvPlaceholder.avif'
 import comingSoonPlaceholder from './assets/comingSoonPlaceholder.png'
+// import imagePlaceholder from './assets/imgComingSoon.webp'
 
 const Main = () => {
 
@@ -26,7 +27,7 @@ const Main = () => {
     const getReleases = async () => {
       try {
         const { data } = await axios.get('https://api.watchmode.com/v1/releases/?apiKey=LaxojFOaUr7urwdEmUb8lBwJET1Wq3fMTRpvSSGQ')
-        // console.log(data.releases)
+        console.log(data.releases)
         setReleases(data.releases)
       } catch (error) {
         setIsError(true)
@@ -56,7 +57,12 @@ const Main = () => {
               return (
                 <div key={release.id} className>
                   <div className="card-image">
-                    <img src={release.poster_url} alt={comingSoonPlaceholder} />
+                    {/* Alt not working atm, alternatively we can get it showing through our styling */}
+                    {release.poster_url ?
+                      <img src={release.poster_url} alt='image poster' />
+                      :
+                      <img src={comingSoonPlaceholder} alt='coming soon placeholder' />
+                    }
                   </div>
                   <div className="card-content">
                     {release.title} - {release.source_release_date}
