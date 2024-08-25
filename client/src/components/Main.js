@@ -57,12 +57,8 @@ const Main = () => {
               return (
                 <div key={release.id} className>
                   <div className="card-image">
-                    {/* Alt not working atm, alternatively we can get it showing through our styling */}
-                    {release.poster_url ?
-                      <img src={release.poster_url} alt='image poster' />
-                      :
-                      <img src={comingSoonPlaceholder} alt='coming soon placeholder' />
-                    }
+                    {/* May change the placeholder image */}
+                    <img src={release.poster_url || comingSoonPlaceholder} alt='image poster / coming soon placeholder' />
                   </div>
                   <div className="card-content">
                     {release.title} - {release.source_release_date}
