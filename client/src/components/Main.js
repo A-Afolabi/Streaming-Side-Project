@@ -41,7 +41,8 @@ const Main = () => {
       <h1 className="title is-1">TV Show -- Movie -- Find where to stream it</h1>
       <h4>USA🇺🇸, Canada🇨🇦, Australia🇦🇺, England🏴󠁧󠁢󠁥󠁮󠁧󠁿, Spain🇪🇸 & Brazil🇧🇷 all Supported</h4>
       <form onSubmit={handleSearch}>
-        <input type='text' name='movieOrTvshow' placeholder='Search for a TV Show, Movie or person...' />
+        <input type='text' id='search' name='movieOrTvshow' placeholder='Search for a TV Show, Movie or person...' />
+        <input type='submit' value='Search' />
         <button>Search</button>
       </form>
       <br></br>
