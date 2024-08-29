@@ -43,7 +43,6 @@ const Main = () => {
       <form onSubmit={handleSearch}>
         <input type='text' id='search' name='movieOrTvshow' placeholder='Search for a TV Show, Movie or person...' />
         <input type='submit' value='Search' />
-        <button>Search</button>
       </form>
       <br></br>
       <br></br>
