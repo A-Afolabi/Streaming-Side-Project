@@ -6,18 +6,20 @@ import comingSoonPlaceholder from './assets/comingSoonPlaceholder.png'
 
 const Main = () => {
 
+  // const [search, setSearch] = useState([])
   const [releases, setReleases] = useState([])
 
   const [isError, setIsError] = useState(false)
 
-  // useEffect(() => {
-  //   const searchField = async () => {
-  //     const res = await axios.get('https://api.watchmode.com/v1/list-titles/?apiKey=LaxojFOaUr7urwdEmUb8lBwJET1Wq3fMTRpvSSGQ&source_ids=203,57')
-  //     console.log(res)
-  //     // 'https://api.watchmode.com/v1/autocomplete-search/?apiKey=YOUR_API_KEY&search_value=Breaking%20bad&search_type=1'
-  //   }
-  //   searchField()
-  // }, [])
+  useEffect(() => {
+    const searchField = async () => {
+      // Search results work for auto complete, but need to change next for values changing
+      const { data } = await axios.get('https://api.watchmode.com/v1/autocomplete-search/?apiKey=LaxojFOaUr7urwdEmUb8lBwJET1Wq3fMTRpvSSGQ&search_value=dwayne%johnson&search_type=1')
+      console.log(data.results)
+      // 'https://api.watchmode.com/v1/list-titles/?apiKey=LaxojFOaUr7urwdEmUb8lBwJET1Wq3fMTRpvSSGQ&source_ids=203,57'
+    }
+    searchField()
+  }, [])
 
   const handleSearch = () => {
 
@@ -27,7 +29,7 @@ const Main = () => {
     const getReleases = async () => {
       try {
         const { data } = await axios.get('https://api.watchmode.com/v1/releases/?apiKey=LaxojFOaUr7urwdEmUb8lBwJET1Wq3fMTRpvSSGQ')
-        console.log(data.releases)
+        // console.log(data.releases)
         setReleases(data.releases)
       } catch (error) {
         setIsError(true)
